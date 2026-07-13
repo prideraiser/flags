@@ -17,7 +17,7 @@
     "src"
   ],
   "scripts": {
-    "postinstall": "lefthook install",
+    "postinstall": "lefthook install || true",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
