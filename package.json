@@ -1,0 +1,100 @@
+{
+  "name": "@prideraiser/flags",
+  "version": "0.1.0",
+  "description": "Pride flag web components and utilities for displaying LGBTQ+ pride flags",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "postinstall": "lefthook install",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:browser": "wtr",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "npm run lint:js:fix && npm run lint:css:fix",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix",
+    "format": "prettier --write .",
+    "fetch-flags": "node scripts/fetch-flags.js",
+    "prebuild": "npm run fetch-flags",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "serve": "vite",
+    "analyze": "cem analyze",
+    "analyze:watch": "cem analyze --watch"
+  },
+  "keywords": [
+    "pride",
+    "lgbtq",
+    "flags",
+    "web-components",
+    "typescript",
+    "svg",
+    "accessibility"
+  ],
+  "author": "Dan Ryan",
+  "license": "MIT",
+  "homepage": "https://flags.prideraiser.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prideraiser/flags.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prideraiser/flags/issues"
+  },
+  "overrides": {
+    "serialize-javascript": ">=7.0.3",
+    "koa": ">=2.16.4"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "*",
+    "@eslint/js": "*",
+    "@eslint/json": "^0.14.0",
+    "@rollup/plugin-commonjs": "*",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "*",
+    "@rollup/plugin-terser": "*",
+    "@rollup/plugin-typescript": "*",
+    "@types/eslint__js": "*",
+    "@types/node": "*",
+    "@vitest/coverage-v8": "*",
+    "@vitest/ui": "*",
+    "@web/test-runner": "*",
+    "@web/test-runner-commands": "*",
+    "@web/test-runner-playwright": "*",
+    "dotenv": "^17.4.2",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "globals": "*",
+    "jiti": "^2.6.1",
+    "prettier": "*",
+    "rollup": "*",
+    "rollup-plugin-summary": "*",
+    "stylelint": "*",
+    "stylelint-config-recess-order": "*",
+    "stylelint-config-standard": "*",
+    "typescript": "~6.0.0",
+    "typescript-eslint": "*",
+    "vite": "^8.1.4",
+    "vitest": "*"
+  },
+  "customElements": "custom-elements.json",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}

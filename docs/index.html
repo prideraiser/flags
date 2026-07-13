@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pride flag web components - Display LGBTQ+ pride flags with ease"
+    />
+    <title>Pride Flag Web Components</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.prideraiser.org/brand/mark-favicon.png?w=16"
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link
+      href="https://www.prideraiser.org/brand/mark-favicon.png?w=32"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      href="https://www.prideraiser.org/brand/mark-favicon.svg"
+      rel="icon"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/demo.css" />
+    <script type="module" src="/dist/index.js" async></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>@prideraiser/flags</h1>
+        <p class="subtitle">
+          Web components for displaying LGBTQ+ pride flags. Brought to you by
+          <a href="https://www.prideraiser.org/">Prideraiser</a>.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="intro">
+        <h2>About</h2>
+        <p>
+          A comprehensive library of pride flag web components built with
+          vanilla TypeScript. Easily display any LGBTQ+ pride flag in your web
+          applications with simple, accessible custom elements. No framework
+          required!
+        </p>
+      </section>
+
+      <section id="installation">
+        <h2>Installation</h2>
+
+        <h3>Via npm</h3>
+        <pre><code>npm install @prideraiser/flags</code></pre>
+        <p>Then import in your JavaScript/TypeScript:</p>
+        <pre><code>import { PrideFlag } from '@prideraiser/flags';</code></pre>
+
+        <h3>Via CDN</h3>
+        <p>Add this script tag to your HTML file:</p>
+        <pre><code>&lt;script type="module" src="https://unpkg.com/@prideraiser/flags@latest" async&gt;&lt;/script&gt;</code></pre>
+        <p>Then you can use the web components anywhere in your HTML:</p>
+        <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
+      </section>
+
+      <section id="usage">
+        <h2>Usage Examples</h2>
+
+        <h3>Basic Example</h3>
+        <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
+        <div class="example">
+          <pride-flag
+            flag-variant="trans"
+            width="300"
+            height="200"
+          ></pride-flag>
+        </div>
+
+        <h3>Current Awareness Period</h3>
+        <pre><code>&lt;pride-flag flag-variant="current"&gt;&lt;/pride-flag&gt;</code></pre>
+        <div class="example">
+          <pride-flag flag-variant="current"></pride-flag>
+        </div>
+        <p>
+          Use <code>flag-variant="current"</code> to automatically display the
+          flag for the current awareness period.
+        </p>
+      </section>
+
+      <section id="attributes">
+        <h2>Attributes</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flag-variant</code></td>
+              <td>string</td>
+              <td>"progress-inclusive"</td>
+              <td>The slug of the flag to display</td>
+            </tr>
+            <tr>
+              <td><code>width</code></td>
+              <td>number</td>
+              <td>300</td>
+              <td>Width of the flag in pixels</td>
+            </tr>
+            <tr>
+              <td><code>height</code></td>
+              <td>number</td>
+              <td>200</td>
+              <td>Height of the flag in pixels</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="styling">
+        <h2>Styling</h2>
+
+        <h3>Responsive Width</h3>
+        <p>
+          To make flags responsive to their container width, set the display to
+          block:
+        </p>
+        <pre><code>pride-flag {
+  display: block;
+}</code></pre>
+        <p>
+          The component maintains its aspect ratio automatically, so the height
+          will scale proportionally with the width.
+        </p>
+
+        <h3>Custom Styling with CSS Parts</h3>
+        <p>Use the <code>::part(flag)</code> selector to style the SVG:</p>
+        <pre><code>pride-flag::part(flag) {
+  border: 2px solid #333;
+  border-radius: 8px;
+}</code></pre>
+      </section>
+
+      <section id="flags">
+        <h2>Available Flags</h2>
+        <p>
+          All flags are based on the community-maintained collection at
+          <a href="https://www.prideraiser.org/brand/">prideraiser.org/brand</a
+          >.
+        </p>
+
+        <div class="flags-grid" id="flags-grid">
+          <!-- Flags will be dynamically loaded here -->
+        </div>
+      </section>
+
+      <section id="accessibility">
+        <h2>Accessibility</h2>
+        <ul>
+          <li>Each flag includes proper ARIA labels and roles</li>
+          <li>SVG titles provide screen reader friendly descriptions</li>
+          <li>High contrast colors ensure visibility</li>
+          <li>Semantic HTML structure</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Part of the
+          <a href="https://www.prideraiser.org/">Prideraiser</a> project
+        </p>
+        <p>
+          <a
+            href="https://github.com/prideraiser/flags"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View on GitHub</a
+          >
+        </p>
+        <p class="copyright-notice">
+          Flag designs were created by various individuals and communities who
+          may hold copyright. We use these designs in good faith to promote
+          LGBTQ+ visibility. We make no claim of copyright ownership.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module">
+      import "/dist/index.js";
+
+      // Get all available flag variants
+      const flagsData = customElements.get("pride-flag").getVariants();
+
+      // Dynamically create flag examples
+      const grid = document.getElementById("flags-grid");
+      flagsData.forEach((flag) => {
+        const card = document.createElement("div");
+        card.className = "flag-card";
+
+        const flagElement = document.createElement("pride-flag");
+        flagElement.setAttribute("flag-variant", flag.slug);
+        flagElement.setAttribute("width", "300");
+        flagElement.setAttribute("height", "200");
+
+        const title = document.createElement("h3");
+        title.textContent = flag.name;
+
+        const markup = `<pride-flag flag-variant="${flag.slug}"></pride-flag>`;
+        const button = document.createElement("button");
+        button.className = "copy-button";
+        button.type = "button";
+        button.setAttribute("aria-label", `Copy markup for ${flag.name}`);
+
+        const code = document.createElement("code");
+        code.textContent = markup;
+        button.appendChild(code);
+
+        button.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(markup);
+            button.classList.add("copied");
+            setTimeout(() => button.classList.remove("copied"), 2000);
+          } catch (err) {
+            console.error("Failed to copy:", err);
+          }
+        });
+
+        if (flag.description) {
+          const desc = document.createElement("p");
+          desc.textContent = flag.description;
+          card.appendChild(desc);
+        }
+
+        card.appendChild(flagElement);
+        card.appendChild(title);
+        card.appendChild(button);
+        grid.appendChild(card);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,328 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PrideFlag",
+          "declaration": {
+            "name": "PrideFlag",
+            "module": "./components/pride-flag.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "FlagVariant",
+          "declaration": {
+            "name": "FlagVariant",
+            "module": "./data/flags.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/pride-flag.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A pride flag web component that renders SVG flags",
+          "name": "PrideFlag",
+          "cssParts": [
+            {
+              "description": "The SVG element containing the flag",
+              "name": "flag"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "_shadowRoot",
+              "type": {
+                "text": "ShadowRoot"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_flagData",
+              "type": {
+                "text": "FlagData | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "getVariants",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "description": "Get all available flag variants"
+            },
+            {
+              "kind": "field",
+              "name": "flagVariant",
+              "type": {
+                "text": "FlagVariant | \"current\""
+              }
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_loadFlagData",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_renderStripes",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_renderDecoration",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_positionDecoration",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_render",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "adoptedStyleSheets",
+              "type": {
+                "text": "array"
+              },
+              "default": "[sharedStyles]"
+            }
+          ],
+          "events": [
+            {
+              "name": "flag-loaded",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Dispatched when flag data is loaded"
+            },
+            {
+              "name": "flag-error",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Dispatched when flag data fails to load"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "flag-variant",
+              "type": {
+                "text": "FlagVariant"
+              },
+              "description": "The slug of the flag to display. Use \"current\" for the current awareness period flag."
+            },
+            {
+              "name": "width",
+              "type": {
+                "text": "number"
+              },
+              "description": "Width of the flag in pixels (default: 300)"
+            },
+            {
+              "name": "height",
+              "type": {
+                "text": "number"
+              },
+              "description": "Height of the flag in pixels (default: 200)"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "pride-flag",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PrideFlag",
+          "declaration": {
+            "name": "PrideFlag",
+            "module": "src/components/pride-flag.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pride-flag",
+          "declaration": {
+            "name": "PrideFlag",
+            "module": "src/components/pride-flag.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/types/flag.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/utils/api.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getFlags",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          },
+          "description": "Gets all available pride flags from local data"
+        },
+        {
+          "kind": "function",
+          "name": "getFlagBySlug",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          },
+          "parameters": [
+            {
+              "name": "slug",
+              "type": {
+                "text": "string"
+              },
+              "description": "The flag's slug identifier"
+            }
+          ],
+          "description": "Gets a specific flag by its slug from local data"
+        },
+        {
+          "kind": "function",
+          "name": "fetchCurrentAwarenessPeriods",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          },
+          "parameters": [
+            {
+              "name": "useCache",
+              "default": "true",
+              "description": "Whether to use cached data (default: true)"
+            }
+          ],
+          "description": "Fetches current awareness periods/celebrations from the API"
+        },
+        {
+          "kind": "function",
+          "name": "getCurrentAwarenessFlagSlugs",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          },
+          "description": "Gets all flag slugs associated with current awareness periods"
+        },
+        {
+          "kind": "function",
+          "name": "clearCache",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "description": "Clears cached awareness period data"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getFlags",
+          "declaration": {
+            "name": "getFlags",
+            "module": "src/utils/api.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "getFlagBySlug",
+          "declaration": {
+            "name": "getFlagBySlug",
+            "module": "src/utils/api.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "fetchCurrentAwarenessPeriods",
+          "declaration": {
+            "name": "fetchCurrentAwarenessPeriods",
+            "module": "src/utils/api.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "getCurrentAwarenessFlagSlugs",
+          "declaration": {
+            "name": "getCurrentAwarenessFlagSlugs",
+            "module": "src/utils/api.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "clearCache",
+          "declaration": {
+            "name": "clearCache",
+            "module": "src/utils/api.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/data/flags.ts",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}

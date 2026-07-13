@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background rectangle for reference -->
+    <rect width="300" height="200" fill="#f0f0f0" opacity="0.3" />
+
+    <!-- Progress decoration -->
+    <path style="fill:#fff" d="M0 22.68 22.46 45 0 67.32z" />
+    <path style="fill:#f5acc5" d="M0 22.68V11.34L33.57 45 0 78.66V67.32L22.46 45z" />
+    <path style="fill:#7acfe7" d="M0 11.34V0l45.19 45L0 90V78.66L33.57 45z" />
+    <path style="fill:#603a17" d="M56.34 45 11.36 0H0l45.19 45L0 90h.01l-.01.01v11.36L11.36 90z" />
+    <path d="M22.7 0H11.36l44.98 45-44.98 45L0 101.37v11.34L22.7 90l44.98-45z" />
+</svg>

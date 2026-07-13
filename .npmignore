@@ -1,0 +1,36 @@
+# Development files
+*.log
+*.tmp
+.DS_Store
+.env
+.env.*
+
+# Source control
+.git
+.gitignore
+.gitmodules
+.pedantry
+
+# IDE
+.vscode
+.idea
+
+# Tests
+coverage
+*.test.ts
+*.spec.ts
+
+# Build artifacts
+node_modules
+dist
+
+# Config files for development only
+lefthook.yml
+vitest.config.ts
+vite.config.js
+web-test-runner.config.js
+rollup.config.js
+custom-elements-manifest.config.js
+
+# Demo site (keep src for source distribution)
+docs/
