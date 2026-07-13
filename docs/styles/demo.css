@@ -237,7 +237,7 @@ main.container {
 
 footer {
   padding: 3rem 0;
-  color: #666;
+  color: light-dark(#666, #aaa);
   text-align: center;
   background-color: var(--bg-secondary);
 }
