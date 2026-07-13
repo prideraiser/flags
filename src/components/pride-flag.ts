@@ -121,8 +121,8 @@ export class PrideFlag extends HTMLElement {
         }
         const data = await response.json();
 
-        // Get the first flag slug from current awareness periods
-        const currentSlug = data[0]?.flag_slugs?.[0];
+        // Get the flag slug from current awareness period
+        const currentSlug = data.awareness_period?.mark;
         if (!currentSlug) {
           throw new Error("No current awareness period flag found");
         }
