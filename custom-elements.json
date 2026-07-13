@@ -27,6 +27,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/data/flags.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/pride-flag.ts",
       "declarations": [
         {
@@ -200,7 +206,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/data/flags.ts",
+      "path": "src/types/flag.ts",
       "declarations": [],
       "exports": []
     },
@@ -317,12 +323,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/types/flag.ts",
-      "declarations": [],
-      "exports": []
     }
   ]
 }
