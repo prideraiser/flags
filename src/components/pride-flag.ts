@@ -9,6 +9,18 @@ interface FlagData {
   decoratorPosition?: string;
 }
 
+interface AwarenessPeriod {
+  name: string;
+  start: string;
+  end: string;
+  mark: string;
+  link: string | null;
+  description: string;
+  date_display: string;
+  logo_url: string;
+  logo_url_png: string;
+}
+
 const CURRENT_FLAG_API =
   "https://www.prideraiser.org/api/v2/awareness-periods/current/";
 
@@ -37,14 +49,18 @@ sharedStyles.replaceSync(`
  * @attr {number} width - Width of the flag in pixels (default: 300)
  * @attr {number} height - Height of the flag in pixels (default: 200)
  *
- * @fires flag-loaded - Dispatched when flag data is loaded
- * @fires flag-error - Dispatched when flag data fails to load
+ * @fires flag-loaded - Dispatched when flag data is loaded successfully.
+ *   Detail: { flag: FlagData, awarenessPeriod: AwarenessPeriod | null }
+ *   awarenessPeriod is only present when flag-variant="current"
+ * @fires flag-error - Dispatched when flag data fails to load. Falls back to default flag.
+ *   Detail: { error: string, awarenessPeriod: null }
  *
  * @csspart flag - The SVG element containing the flag
  */
 export class PrideFlag extends HTMLElement {
   private _shadowRoot: ShadowRoot;
   private _flagData: FlagData | null = null;
+  private _awarenessPeriod: AwarenessPeriod | null = null;
 
   static get observedAttributes() {
     return ["flag-variant", "width", "height"];
@@ -134,6 +150,7 @@ export class PrideFlag extends HTMLElement {
           throw new Error(`Flag variant "${currentSlug}" not found`);
         }
         this._flagData = flag;
+        this._awarenessPeriod = data.awareness_period;
       } else {
         // Use local data
         const flag = (flagsData as FlagData[]).find((f) => f.slug === variant);
@@ -141,13 +158,17 @@ export class PrideFlag extends HTMLElement {
           throw new Error(`Flag variant "${variant}" not found`);
         }
         this._flagData = flag;
+        this._awarenessPeriod = null;
       }
 
       this._render();
 
       this.dispatchEvent(
         new CustomEvent("flag-loaded", {
-          detail: { flag: this._flagData },
+          detail: {
+            flag: this._flagData,
+            awarenessPeriod: this._awarenessPeriod,
+          },
           bubbles: true,
           composed: true,
         }),
@@ -175,6 +196,7 @@ export class PrideFlag extends HTMLElement {
         new CustomEvent("flag-error", {
           detail: {
             error: error instanceof Error ? error.message : String(error),
+            awarenessPeriod: null,
           },
           bubbles: true,
           composed: true,

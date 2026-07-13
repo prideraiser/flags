@@ -88,7 +88,11 @@
         <h3>Current Awareness Period</h3>
         <pre><code>&lt;pride-flag flag-variant="current"&gt;&lt;/pride-flag&gt;</code></pre>
         <div class="example">
-          <pride-flag flag-variant="current"></pride-flag>
+          <pride-flag flag-variant="current" id="current-flag"></pride-flag>
+          <p
+            id="current-period-info"
+            style="margin-top: 1rem; font-style: italic"
+          ></p>
         </div>
         <p>
           Use <code>flag-variant="current"</code> to automatically display the
@@ -250,6 +254,21 @@
         card.appendChild(title);
         card.appendChild(button);
         grid.appendChild(card);
+      });
+
+      // Listen for current awareness period flag load
+      const currentFlag = document.getElementById("current-flag");
+      const periodInfo = document.getElementById("current-period-info");
+
+      currentFlag.addEventListener("flag-loaded", (event) => {
+        const { awarenessPeriod } = event.detail;
+        if (awarenessPeriod) {
+          periodInfo.textContent = `Current: ${awarenessPeriod.name} (${awarenessPeriod.date_display})`;
+        }
+      });
+
+      currentFlag.addEventListener("flag-error", () => {
+        periodInfo.textContent = "No current awareness period";
       });
     </script>
   </body>
