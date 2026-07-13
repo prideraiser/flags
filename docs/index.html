@@ -134,6 +134,58 @@
         </table>
       </section>
 
+      <section id="events">
+        <h2>Events</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Description</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flag-loaded</code></td>
+              <td>Fired when flag data is loaded successfully</td>
+              <td>
+                <code
+                  >{ flag: FlagData, awarenessPeriod: AwarenessPeriod | null
+                  }</code
+                >
+              </td>
+            </tr>
+            <tr>
+              <td><code>flag-error</code></td>
+              <td>
+                Fired when flag fails to load (falls back to default flag)
+              </td>
+              <td><code>{ error: string, awarenessPeriod: null }</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          The <code>awarenessPeriod</code> property is only present (non-null)
+          when using <code>flag-variant="current"</code>. It includes the
+          awareness period name, dates, description, and related information.
+        </p>
+
+        <h3>Example: Listening for Events</h3>
+        <pre><code>const flag = document.querySelector('pride-flag');
+
+flag.addEventListener('flag-loaded', (event) => {
+  const { flag, awarenessPeriod } = event.detail;
+  console.log('Loaded flag:', flag.name);
+  if (awarenessPeriod) {
+    console.log('Current period:', awarenessPeriod.name);
+  }
+});
+
+flag.addEventListener('flag-error', (event) => {
+  console.error('Failed to load flag:', event.detail.error);
+});</code></pre>
+      </section>
+
       <section id="styling">
         <h2>Styling</h2>
 

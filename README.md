@@ -114,10 +114,12 @@ Alternative CDNs:
 
 #### Events
 
-| Event         | Description                    | Detail               |
-| ------------- | ------------------------------ | -------------------- |
-| `flag-loaded` | Fired when flag data is loaded | `{ flag: FlagData }` |
-| `flag-error`  | Fired when flag fails to load  | `{ error: string }`  |
+| Event         | Description                                           | Detail                                                         |
+| ------------- | ----------------------------------------------------- | -------------------------------------------------------------- |
+| `flag-loaded` | Fired when flag data is loaded successfully           | `{ flag: FlagData, awarenessPeriod: AwarenessPeriod \| null }` |
+| `flag-error`  | Fired when flag fails to load (falls back to default) | `{ error: string, awarenessPeriod: null }`                     |
+
+The `awarenessPeriod` property is only present (non-null) when using `flag-variant="current"`. It includes the awareness period name, dates, description, and related information.
 
 #### CSS Parts
 
