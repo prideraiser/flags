@@ -1,3 +1,8 @@
+pre-push:
+  commands:
+    fetch-flags:
+      run: npm run fetch-flags
+
 pre-commit:
   parallel: false
   commands:
