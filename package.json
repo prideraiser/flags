@@ -33,6 +33,7 @@
     "fetch-flags": "node scripts/fetch-flags.js",
     "prebuild": "npm run fetch-flags",
     "build": "rollup -c",
+    "build:prod": "NODE_ENV=production npm run build",
     "build:watch": "rollup -c --watch",
     "serve": "vite",
     "analyze": "cem analyze",
