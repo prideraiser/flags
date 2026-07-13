@@ -58,6 +58,15 @@
               "default": "null"
             },
             {
+              "kind": "field",
+              "name": "_awarenessPeriod",
+              "type": {
+                "text": "AwarenessPeriod | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
               "kind": "method",
               "name": "getVariants",
               "static": true,
@@ -139,14 +148,14 @@
               "type": {
                 "text": "CustomEvent"
               },
-              "description": "Dispatched when flag data is loaded"
+              "description": "Dispatched when flag data is loaded successfully. Detail: { flag: FlagData, awarenessPeriod: AwarenessPeriod | null } awarenessPeriod is only present when flag-variant=\"current\""
             },
             {
               "name": "flag-error",
               "type": {
                 "text": "CustomEvent"
               },
-              "description": "Dispatched when flag data fails to load"
+              "description": "Dispatched when flag data fails to load. Falls back to default flag. Detail: { error: string, awarenessPeriod: null }"
             }
           ],
           "attributes": [
