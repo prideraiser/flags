@@ -10,7 +10,7 @@ interface FlagData {
 }
 
 const CURRENT_FLAG_API =
-  "https://www.prideraiser.org/api/v2/awareness-periods/current";
+  "https://www.prideraiser.org/api/v2/awareness-periods/current/";
 
 // Shared stylesheet for all pride-flag instances (CSP-friendly)
 const sharedStyles = new CSSStyleSheet();

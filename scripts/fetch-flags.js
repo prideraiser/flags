@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 
 const API_URL =
   process.env["PRIDERAISER_API_URL"] ||
-  "https://www.prideraiser.org/api/v2/flags";
+  "https://www.prideraiser.org/api/v2/flags/";
 const OUTPUT_FILE = join(__dirname, "../src/data/flags-data.json");
 
 async function fetchFlags() {
