@@ -24,7 +24,11 @@ async function fetchFlags() {
   try {
     console.log(`Fetching flags from ${API_URL}...`);
 
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL, {
+      headers: {
+        "User-Agent": "prideraiser-flags-builder/1.0",
+      },
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
