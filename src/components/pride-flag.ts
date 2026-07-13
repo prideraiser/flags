@@ -66,6 +66,9 @@ export class PrideFlag extends HTMLElement {
   }
 
   connectedCallback() {
+    // Show loading state immediately
+    this._render();
+    // Then load flag data
     this._loadFlagData();
   }
 
@@ -155,14 +158,18 @@ export class PrideFlag extends HTMLElement {
         `Failed to load flag variant "${this.flagVariant}": ${error instanceof Error ? error.message : String(error)}. Falling back to default (progress-inclusive).`,
       );
 
-      // Load default flag
-      const defaultFlag = (flagsData as FlagData[]).find(
-        (f) => f.slug === "progress-inclusive",
-      );
+      // Load default flag (progress-inclusive), or first available flag as last resort
+      const defaultFlag =
+        (flagsData as FlagData[]).find(
+          (f) => f.slug === "progress-inclusive",
+        ) || (flagsData as FlagData[])[0];
+
       if (defaultFlag) {
         this._flagData = defaultFlag;
-        this._render();
       }
+
+      // Always render, even if no flag data is available (will show loading state)
+      this._render();
 
       this.dispatchEvent(
         new CustomEvent("flag-error", {
