@@ -83,6 +83,7 @@
     "eslint-config-prettier": "*",
     "globals": "*",
     "jiti": "^2.6.1",
+    "normalize.css": "^8.0.1",
     "prettier": "*",
     "rollup": "*",
     "rollup-plugin-summary": "*",
@@ -94,8 +95,5 @@
     "vite": "^8.1.4",
     "vitest": "*"
   },
-  "customElements": "custom-elements.json",
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  }
+  "customElements": "custom-elements.json"
 }
