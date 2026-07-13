@@ -1,6 +1,6 @@
 {
   "name": "@prideraiser/flags",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pride flag web components and utilities for displaying LGBTQ+ pride flags",
   "type": "module",
   "main": "./dist/index.js",
