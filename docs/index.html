@@ -3,17 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <meta
       name="description"
       content="Pride flag web components - Display LGBTQ+ pride flags with ease"
     />
     <title>Pride Flag Web Components</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap"
-      rel="stylesheet"
-    />
     <link
       href="https://www.prideraiser.org/brand/mark-favicon.png?w=16"
       rel="icon"
@@ -31,23 +26,21 @@
       rel="icon"
       type="image/svg+xml"
     />
-    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="https://tools.dryan.tech/theme.css" />
     <link rel="stylesheet" href="/styles/demo.css" />
     <script type="module" src="/dist/index.js" async></script>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1>@prideraiser/flags</h1>
-        <p class="subtitle">
-          Web components for displaying LGBTQ+ pride flags. Brought to you by
-          <a href="https://www.prideraiser.org/">Prideraiser</a>.
-        </p>
-      </div>
+    <header class="hero full-bleed full-bleed--contained">
+      <h1>@prideraiser/flags</h1>
+      <p class="subtitle">
+        Web components for displaying LGBTQ+ pride flags. Brought to you by
+        <a href="https://www.prideraiser.org/">Prideraiser</a>.
+      </p>
     </header>
 
-    <main class="container">
-      <section id="intro">
+    <main>
+      <section class="stack" id="intro">
         <h2>About</h2>
         <p>
           A comprehensive library of pride flag web components built with
@@ -57,7 +50,7 @@
         </p>
       </section>
 
-      <section id="installation">
+      <section class="stack" id="installation">
         <h2>Installation</h2>
 
         <h3>Via npm</h3>
@@ -72,12 +65,12 @@
         <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
       </section>
 
-      <section id="usage">
+      <section class="stack" id="usage">
         <h2>Usage Examples</h2>
 
         <h3>Basic Example</h3>
         <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
-        <div class="example">
+        <div class="example card">
           <pride-flag
             flag-variant="trans"
             width="300"
@@ -87,12 +80,9 @@
 
         <h3>Current Awareness Period</h3>
         <pre><code>&lt;pride-flag flag-variant="current"&gt;&lt;/pride-flag&gt;</code></pre>
-        <div class="example">
+        <div class="example card">
           <pride-flag flag-variant="current" id="current-flag"></pride-flag>
-          <p
-            id="current-period-info"
-            style="margin-top: 1rem; font-style: italic"
-          ></p>
+          <p id="current-period-info" class="period-info"></p>
         </div>
         <p>
           Use <code>flag-variant="current"</code> to automatically display the
@@ -100,70 +90,74 @@
         </p>
       </section>
 
-      <section id="attributes">
+      <section class="stack" id="attributes">
         <h2>Attributes</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Attribute</th>
-              <th>Type</th>
-              <th>Default</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>flag-variant</code></td>
-              <td>string</td>
-              <td>"progress-inclusive"</td>
-              <td>The slug of the flag to display</td>
-            </tr>
-            <tr>
-              <td><code>width</code></td>
-              <td>number</td>
-              <td>300</td>
-              <td>Width of the flag in pixels</td>
-            </tr>
-            <tr>
-              <td><code>height</code></td>
-              <td>number</td>
-              <td>200</td>
-              <td>Height of the flag in pixels</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>flag-variant</code></td>
+                <td>string</td>
+                <td>"progress-inclusive"</td>
+                <td>The slug of the flag to display</td>
+              </tr>
+              <tr>
+                <td><code>width</code></td>
+                <td>number</td>
+                <td>300</td>
+                <td>Width of the flag in pixels</td>
+              </tr>
+              <tr>
+                <td><code>height</code></td>
+                <td>number</td>
+                <td>200</td>
+                <td>Height of the flag in pixels</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
-      <section id="events">
+      <section class="stack" id="events">
         <h2>Events</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Event</th>
-              <th>Description</th>
-              <th>Detail</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>flag-loaded</code></td>
-              <td>Fired when flag data is loaded successfully</td>
-              <td>
-                <code
-                  >{ flag: FlagData, awarenessPeriod: AwarenessPeriod | null
-                  }</code
-                >
-              </td>
-            </tr>
-            <tr>
-              <td><code>flag-error</code></td>
-              <td>
-                Fired when flag fails to load (falls back to default flag)
-              </td>
-              <td><code>{ error: string, awarenessPeriod: null }</code></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Description</th>
+                <th>Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>flag-loaded</code></td>
+                <td>Fired when flag data is loaded successfully</td>
+                <td>
+                  <code
+                    >{ flag: FlagData, awarenessPeriod: AwarenessPeriod | null
+                    }</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><code>flag-error</code></td>
+                <td>
+                  Fired when flag fails to load (falls back to default flag)
+                </td>
+                <td><code>{ error: string, awarenessPeriod: null }</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p>
           The <code>awarenessPeriod</code> property is only present (non-null)
           when using <code>flag-variant="current"</code>. It includes the
@@ -186,7 +180,7 @@ flag.addEventListener('flag-error', (event) => {
 });</code></pre>
       </section>
 
-      <section id="styling">
+      <section class="stack" id="styling">
         <h2>Styling</h2>
 
         <h3>Responsive Width</h3>
@@ -210,7 +204,7 @@ flag.addEventListener('flag-error', (event) => {
 }</code></pre>
       </section>
 
-      <section id="flags">
+      <section class="stack" id="flags">
         <h2>Available Flags</h2>
         <p>
           All flags are based on the community-maintained collection at
@@ -218,12 +212,12 @@ flag.addEventListener('flag-error', (event) => {
           >.
         </p>
 
-        <div class="flags-grid" id="flags-grid">
+        <div class="cards" id="flags-grid" role="list">
           <!-- Flags will be dynamically loaded here -->
         </div>
       </section>
 
-      <section id="accessibility">
+      <section class="stack" id="accessibility">
         <h2>Accessibility</h2>
         <ul>
           <li>Each flag includes proper ARIA labels and roles</li>
@@ -234,8 +228,8 @@ flag.addEventListener('flag-error', (event) => {
       </section>
     </main>
 
-    <footer>
-      <div class="container">
+    <footer class="site-footer full-bleed full-bleed--contained">
+      <div class="stack">
         <p>
           Part of the
           <a href="https://www.prideraiser.org/">Prideraiser</a> project
@@ -266,7 +260,8 @@ flag.addEventListener('flag-error', (event) => {
       const grid = document.getElementById("flags-grid");
       flagsData.forEach((flag) => {
         const card = document.createElement("div");
-        card.className = "flag-card";
+        card.className = "card";
+        card.setAttribute("role", "listitem");
 
         const flagElement = document.createElement("pride-flag");
         flagElement.setAttribute("flag-variant", flag.slug);
@@ -278,7 +273,7 @@ flag.addEventListener('flag-error', (event) => {
 
         const markup = `<pride-flag flag-variant="${flag.slug}"></pride-flag>`;
         const button = document.createElement("button");
-        button.className = "copy-button";
+        button.className = "button copy-button";
         button.type = "button";
         button.setAttribute("aria-label", `Copy markup for ${flag.name}`);
 
