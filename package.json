@@ -92,7 +92,8 @@
     "typescript": "~6.0.0",
     "typescript-eslint": "*",
     "vite": "^8.1.4",
-    "vitest": "*"
+    "vitest": "*",
+    "wrangler": "4.133.0"
   },
   "customElements": "custom-elements.json"
 }
