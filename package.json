@@ -58,10 +58,6 @@
   "bugs": {
     "url": "https://github.com/prideraiser/flags/issues"
   },
-  "overrides": {
-    "serialize-javascript": ">=7.0.3",
-    "koa": ">=2.16.4"
-  },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "*",
     "@eslint/js": "*",
@@ -73,8 +69,8 @@
     "@rollup/plugin-typescript": "*",
     "@types/eslint__js": "*",
     "@types/node": "*",
-    "@vitest/coverage-v8": "*",
-    "@vitest/ui": "*",
+    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/ui": "^4.1.11",
     "@web/test-runner": "*",
     "@web/test-runner-commands": "*",
     "@web/test-runner-playwright": "*",
@@ -93,7 +89,7 @@
     "typescript": "~6.0.0",
     "typescript-eslint": "*",
     "vite": "^8.1.4",
-    "vitest": "*",
+    "vitest": "^4.1.11",
     "wrangler": "^4.135.0"
   },
   "customElements": "custom-elements.json"
