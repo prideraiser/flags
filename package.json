@@ -35,6 +35,7 @@
     "build:prod": "NODE_ENV=production npm run build",
     "build:watch": "rollup -c --watch",
     "serve": "vite",
+    "deploy": "npm run build && wrangler deploy",
     "analyze": "cem analyze",
     "analyze:watch": "cem analyze --watch"
   },
@@ -92,7 +93,8 @@
     "typescript": "~6.0.0",
     "typescript-eslint": "*",
     "vite": "^8.1.4",
-    "vitest": "*"
+    "vitest": "*",
+    "wrangler": "^4.135.0"
   },
   "customElements": "custom-elements.json"
 }

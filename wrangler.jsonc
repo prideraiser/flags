@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "flags",
+  "compatibility_date": "2026-09-19",
+  "assets": {
+    "directory": "./docs"
+  },
+  "workers_dev": true
+}
