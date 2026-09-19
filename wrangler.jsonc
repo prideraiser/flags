@@ -5,5 +5,11 @@
   "assets": {
     "directory": "./docs"
   },
-  "workers_dev": true
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "flags.prideraiser.org",
+      "custom_domain": true
+    }
+  ]
 }
