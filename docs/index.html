@@ -28,6 +28,7 @@
     />
     <link rel="stylesheet" href="https://tools.dryan.tech/theme.css" />
     <link rel="stylesheet" href="/styles/demo.css" />
+    <script type="module" src="https://tools.dryan.tech/stack.js" async></script>
     <script type="module" src="/dist/index.js" async></script>
   </head>
   <body>
@@ -40,132 +41,141 @@
     </header>
 
     <main>
-      <section class="stack" id="intro">
-        <h2>About</h2>
-        <p>
-          A comprehensive library of pride flag web components built with
-          vanilla TypeScript. Easily display any LGBTQ+ pride flag in your web
-          applications with simple, accessible custom elements. No framework
-          required!
-        </p>
+      <section id="intro">
+        <dryan-stack>
+          <h2>About</h2>
+          <p>
+            A comprehensive library of pride flag web components built with
+            vanilla TypeScript. Easily display any LGBTQ+ pride flag in your web
+            applications with simple, accessible custom elements. No framework
+            required!
+          </p>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="installation">
-        <h2>Installation</h2>
+      <section id="installation">
+        <dryan-stack>
+          <h2>Installation</h2>
 
-        <h3>Via npm</h3>
-        <pre><code>npm install @prideraiser/flags</code></pre>
-        <p>Then import in your JavaScript/TypeScript:</p>
-        <pre><code>import { PrideFlag } from '@prideraiser/flags';</code></pre>
+          <h3>Via npm</h3>
+          <pre><code>npm install @prideraiser/flags</code></pre>
+          <p>Then import in your JavaScript/TypeScript:</p>
+          <pre><code>import { PrideFlag } from '@prideraiser/flags';</code></pre>
 
-        <h3>Via CDN</h3>
-        <p>Add this script tag to your HTML file:</p>
-        <pre><code>&lt;script type="module" src="https://unpkg.com/@prideraiser/flags@latest" async&gt;&lt;/script&gt;</code></pre>
-        <p>Then you can use the web components anywhere in your HTML:</p>
-        <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
+          <h3>Via CDN</h3>
+          <p>Add this script tag to your HTML file:</p>
+          <pre><code>&lt;script type="module" src="https://unpkg.com/@prideraiser/flags@latest" async&gt;&lt;/script&gt;</code></pre>
+          <p>Then you can use the web components anywhere in your HTML:</p>
+          <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="usage">
-        <h2>Usage Examples</h2>
+      <section id="usage">
+        <dryan-stack>
+          <h2>Usage Examples</h2>
 
-        <h3>Basic Example</h3>
-        <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
-        <div class="example card">
-          <pride-flag
-            flag-variant="trans"
-            width="300"
-            height="200"
-          ></pride-flag>
-        </div>
+          <h3>Basic Example</h3>
+          <pre><code>&lt;pride-flag flag-variant="trans" width="300" height="200"&gt;&lt;/pride-flag&gt;</code></pre>
+          <div class="example card">
+            <pride-flag
+              flag-variant="trans"
+              width="300"
+              height="200"
+            ></pride-flag>
+          </div>
 
-        <h3>Current Awareness Period</h3>
-        <pre><code>&lt;pride-flag flag-variant="current"&gt;&lt;/pride-flag&gt;</code></pre>
-        <div class="example card">
-          <pride-flag flag-variant="current" id="current-flag"></pride-flag>
-          <p id="current-period-info" class="period-info"></p>
-        </div>
-        <p>
-          Use <code>flag-variant="current"</code> to automatically display the
-          flag for the current awareness period.
-        </p>
+          <h3>Current Awareness Period</h3>
+          <pre><code>&lt;pride-flag flag-variant="current"&gt;&lt;/pride-flag&gt;</code></pre>
+          <div class="example card">
+            <pride-flag flag-variant="current" id="current-flag"></pride-flag>
+            <p id="current-period-info" class="period-info"></p>
+          </div>
+          <p>
+            Use <code>flag-variant="current"</code> to automatically display the
+            flag for the current awareness period.
+          </p>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="attributes">
-        <h2>Attributes</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Attribute</th>
-                <th>Type</th>
-                <th>Default</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>flag-variant</code></td>
-                <td>string</td>
-                <td>"progress-inclusive"</td>
-                <td>The slug of the flag to display</td>
-              </tr>
-              <tr>
-                <td><code>width</code></td>
-                <td>number</td>
-                <td>300</td>
-                <td>Width of the flag in pixels</td>
-              </tr>
-              <tr>
-                <td><code>height</code></td>
-                <td>number</td>
-                <td>200</td>
-                <td>Height of the flag in pixels</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <section id="attributes">
+        <dryan-stack>
+          <h2>Attributes</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>flag-variant</code></td>
+                  <td>string</td>
+                  <td>"progress-inclusive"</td>
+                  <td>The slug of the flag to display</td>
+                </tr>
+                <tr>
+                  <td><code>width</code></td>
+                  <td>number</td>
+                  <td>300</td>
+                  <td>Width of the flag in pixels</td>
+                </tr>
+                <tr>
+                  <td><code>height</code></td>
+                  <td>number</td>
+                  <td>200</td>
+                  <td>Height of the flag in pixels</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="events">
-        <h2>Events</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Event</th>
-                <th>Description</th>
-                <th>Detail</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>flag-loaded</code></td>
-                <td>Fired when flag data is loaded successfully</td>
-                <td>
-                  <code
-                    >{ flag: FlagData, awarenessPeriod: AwarenessPeriod | null
-                    }</code
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td><code>flag-error</code></td>
-                <td>
-                  Fired when flag fails to load (falls back to default flag)
-                </td>
-                <td><code>{ error: string, awarenessPeriod: null }</code></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p>
-          The <code>awarenessPeriod</code> property is only present (non-null)
-          when using <code>flag-variant="current"</code>. It includes the
-          awareness period name, dates, description, and related information.
-        </p>
+      <section id="events">
+        <dryan-stack>
+          <h2>Events</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>Description</th>
+                  <th>Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>flag-loaded</code></td>
+                  <td>Fired when flag data is loaded successfully</td>
+                  <td>
+                    <code
+                      >{ flag: FlagData, awarenessPeriod: AwarenessPeriod | null
+                      }</code
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>flag-error</code></td>
+                  <td>
+                    Fired when flag fails to load (falls back to default flag)
+                  </td>
+                  <td><code>{ error: string, awarenessPeriod: null }</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            The <code>awarenessPeriod</code> property is only present (non-null)
+            when using <code>flag-variant="current"</code>. It includes the
+            awareness period name, dates, description, and related information.
+          </p>
 
-        <h3>Example: Listening for Events</h3>
-        <pre><code>const flag = document.querySelector('pride-flag');
+          <h3>Example: Listening for Events</h3>
+          <pre><code>const flag = document.querySelector('pride-flag');
 
 flag.addEventListener('flag-loaded', (event) => {
   const { flag, awarenessPeriod } = event.detail;
@@ -178,58 +188,65 @@ flag.addEventListener('flag-loaded', (event) => {
 flag.addEventListener('flag-error', (event) => {
   console.error('Failed to load flag:', event.detail.error);
 });</code></pre>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="styling">
-        <h2>Styling</h2>
+      <section id="styling">
+        <dryan-stack>
+          <h2>Styling</h2>
 
-        <h3>Responsive Width</h3>
-        <p>
-          To make flags responsive to their container width, set the display to
-          block:
-        </p>
-        <pre><code>pride-flag {
+          <h3>Responsive Width</h3>
+          <p>
+            To make flags responsive to their container width, set the display to
+            block:
+          </p>
+          <pre><code>pride-flag {
   display: block;
 }</code></pre>
-        <p>
-          The component maintains its aspect ratio automatically, so the height
-          will scale proportionally with the width.
-        </p>
+          <p>
+            The component maintains its aspect ratio automatically, so the height
+            will scale proportionally with the width.
+          </p>
 
-        <h3>Custom Styling with CSS Parts</h3>
-        <p>Use the <code>::part(flag)</code> selector to style the SVG:</p>
-        <pre><code>pride-flag::part(flag) {
+          <h3>Custom Styling with CSS Parts</h3>
+          <p>Use the <code>::part(flag)</code> selector to style the SVG:</p>
+          <pre><code>pride-flag::part(flag) {
   border: 2px solid #333;
   border-radius: 8px;
 }</code></pre>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="flags">
-        <h2>Available Flags</h2>
-        <p>
-          All flags are based on the community-maintained collection at
-          <a href="https://www.prideraiser.org/brand/">prideraiser.org/brand</a
-          >.
-        </p>
+      <section id="flags">
+        <dryan-stack>
+          <h2>Available Flags</h2>
+          <p>
+            All flags are based on the community-maintained collection at
+            <a href="https://www.prideraiser.org/brand/">prideraiser.org/brand</a
+            >.
+          </p>
 
-        <div class="cards" id="flags-grid" role="list">
-          <!-- Flags will be dynamically loaded here -->
-        </div>
+          <div class="cards" id="flags-grid" role="list">
+            <!-- Flags will be dynamically loaded here -->
+          </div>
+        </dryan-stack>
       </section>
 
-      <section class="stack" id="accessibility">
-        <h2>Accessibility</h2>
-        <ul>
-          <li>Each flag includes proper ARIA labels and roles</li>
-          <li>SVG titles provide screen reader friendly descriptions</li>
-          <li>High contrast colors ensure visibility</li>
-          <li>Semantic HTML structure</li>
-        </ul>
+      <section id="accessibility">
+        <dryan-stack>
+          <h2>Accessibility</h2>
+          <ul>
+            <li>Each flag includes proper ARIA labels and roles</li>
+            <li>SVG titles provide screen reader friendly descriptions</li>
+            <li>High contrast colors ensure visibility</li>
+            <li>Semantic HTML structure</li>
+          </ul>
+        </dryan-stack>
       </section>
     </main>
 
     <footer class="site-footer full-bleed full-bleed--contained">
-      <div class="stack">
+      <dryan-stack>
         <p>
           Part of the
           <a href="https://www.prideraiser.org/">Prideraiser</a> project
@@ -247,7 +264,7 @@ flag.addEventListener('flag-error', (event) => {
           may hold copyright. We use these designs in good faith to promote
           LGBTQ+ visibility. We make no claim of copyright ownership.
         </p>
-      </div>
+      </dryan-stack>
     </footer>
 
     <script type="module">

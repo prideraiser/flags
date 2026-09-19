@@ -1,6 +1,7 @@
-/* Page-specific styles layered on top of https://tools.dryan.tech/theme.css.
+/* Page-specific styles layered on top of https://tools.dryan.tech/theme.css
+   and its <dryan-stack> custom element (tools.dryan.tech/stack.js).
    The hero keeps its original gradient; everything else uses theme tokens
-   and components (.card, .cards, .button, .stack, .full-bleed(--contained)). */
+   and components (.card, .cards, .button, .full-bleed(--contained)). */
 
 .hero {
   gap: var(--size-3);
@@ -36,10 +37,10 @@ main {
 }
 
 /* Without an explicit (shrinkable) column, a long unwrapped line in a <pre>
-   forces main/.stack's implicit grid track wider than the page itself
+   forces main/dryan-stack's implicit grid track wider than the page itself
    instead of letting the <pre> scroll internally. */
 main,
-.stack {
+dryan-stack {
   grid-template-columns: minmax(0, 1fr);
 }
 
