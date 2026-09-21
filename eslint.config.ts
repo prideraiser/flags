@@ -17,6 +17,8 @@ const config: Linter.Config[] = [
       "node_modules/**",
       "dist/**",
       "docs/dist/**",
+      "docs/sentry-init.js",
+      "docs/sentry-init.js.map",
       "build/**",
       ".vscode/**",
       ".rollup.cache/**",

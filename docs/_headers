@@ -1,0 +1,11 @@
+# Cloudflare Workers static assets headers, demo site only (flags.prideraiser.org).
+# Not shipped as part of the published @prideraiser/flags package.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://tools.dryan.tech; style-src 'self' https://tools.dryan.tech; font-src 'self' https://tools.dryan.tech; img-src 'self' https://www.prideraiser.org; connect-src 'self' https://www.prideraiser.org https://errors.dryan.tech; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'

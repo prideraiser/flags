@@ -20,7 +20,7 @@ import summary from "rollup-plugin-summary";
 // Set to true for production builds
 const production = !process.env["ROLLUP_WATCH"];
 
-export default {
+const libraryBuild = {
   input: "src/index.ts",
   output: {
     dir: "dist",
@@ -83,3 +83,36 @@ export default {
 
   preserveEntrySignatures: "strict",
 };
+
+// Error reporting for the demo site only (docs/index.html) - deliberately
+// separate from libraryBuild above so Sentry never ends up in dist/ or the
+// published npm package that other people's pages load as <pride-flag>.
+const demoSentryBuild = {
+  input: "demo/sentry-init.ts",
+  output: {
+    dir: "docs",
+    entryFileNames: "sentry-init.js",
+    format: "es",
+    sourcemap: true,
+  },
+  plugins: [
+    resolve(),
+    commonjs(),
+    typescript({
+      declaration: false,
+      declarationMap: false,
+      rootDir: "demo",
+      outDir: "docs",
+      tsconfig: "./tsconfig.json",
+    }),
+    production &&
+      terser({
+        ecma: 2020,
+        module: true,
+      }),
+    summary(),
+  ],
+  preserveEntrySignatures: "strict",
+};
+
+export default [libraryBuild, demoSentryBuild];

@@ -44,6 +44,13 @@
       "@types/*": ["src/types/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "scripts/**/*.js", "*.ts", "*.js"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "scripts/**/*.js",
+    "demo/**/*.ts",
+    "*.ts",
+    "*.js"
+  ],
   "exclude": ["node_modules", "dist", "build", "coverage"]
 }

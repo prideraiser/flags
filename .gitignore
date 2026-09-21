@@ -84,6 +84,10 @@ out
 dist
 .output
 
+# Generated demo-site bundle (rollup.config.js's demoSentryBuild)
+docs/sentry-init.js
+docs/sentry-init.js.map
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
