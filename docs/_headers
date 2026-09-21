@@ -8,4 +8,4 @@
   Cross-Origin-Opener-Policy: same-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Permissions-Policy: accelerometer=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://tools.dryan.tech; style-src 'self' https://tools.dryan.tech; font-src 'self' https://tools.dryan.tech; img-src 'self' https://www.prideraiser.org; connect-src 'self' https://www.prideraiser.org https://errors.dryan.tech; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://tools.dryan.tech https://cdn.jsdelivr.net; style-src 'self' https://tools.dryan.tech https://cdn.jsdelivr.net; font-src 'self' https://tools.dryan.tech; img-src 'self' https://www.prideraiser.org; connect-src 'self' https://www.prideraiser.org https://errors.dryan.tech; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'
