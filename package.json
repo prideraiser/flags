@@ -91,7 +91,7 @@
     "typescript-eslint": "*",
     "vite": "^8.1.4",
     "vitest": "^4.1.11",
-    "wrangler": "^4.135.0"
+    "wrangler": "^4.147.0"
   },
   "customElements": "custom-elements.json"
 }
