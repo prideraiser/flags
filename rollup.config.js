@@ -1,14 +1,5 @@
 // @ts-check
 
-/**
- * Rollup configuration for Web Components
- *
- * This is a template configuration. Adjust based on your project needs:
- * - Add/remove plugins as needed
- * - Adjust input/output paths
- * - Configure for library vs application builds
- */
-
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
@@ -16,17 +7,13 @@ import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
 import json from "@rollup/plugin-json";
 import summary from "rollup-plugin-summary";
+import { rollupConfig } from "@dryan/pedantry/rollup";
 
 // Set to true for production builds
 const production = !process.env["ROLLUP_WATCH"];
 
-const libraryBuild = {
+const libraryBuild = rollupConfig({
   input: "src/index.ts",
-  output: {
-    dir: "dist",
-    format: "es",
-    sourcemap: true,
-  },
   plugins: [
     // Resolve bare module specifiers to relative paths
     resolve(),
@@ -81,13 +68,13 @@ const libraryBuild = {
     clearScreen: false,
   },
 
-  preserveEntrySignatures: "strict",
-};
+  external: [],
+});
 
 // Error reporting for the demo site only (docs/index.html) - deliberately
 // separate from libraryBuild above so Sentry never ends up in dist/ or the
 // published npm package that other people's pages load as <pride-flag>.
-const demoSentryBuild = {
+const demoSentryBuild = rollupConfig({
   input: "demo/sentry-init.ts",
   output: {
     dir: "docs",
@@ -112,7 +99,7 @@ const demoSentryBuild = {
       }),
     summary(),
   ],
-  preserveEntrySignatures: "strict",
-};
+  external: [],
+});
 
-export default [libraryBuild, demoSentryBuild];
+export default Promise.all([libraryBuild, demoSentryBuild]);

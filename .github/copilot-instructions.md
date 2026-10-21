@@ -4,19 +4,17 @@ This document provides guidelines for AI assistants working on this codebase.
 
 ---
 
-## ⚠️ CRITICAL: Do Not Modify Submodule Files
+## ⚠️ CRITICAL: Do Not Edit Pedantry-Managed Files
 
-**If this project uses the pedantry submodule (`.pedantry/` directory), NEVER modify files within it.**
+**Files written by `pedantry sync` are managed. Never edit them by hand; run `pedantry sync` instead.**
 
-- All configuration files have been **copied** from the submodule to the project root
-- Edit the copied files in the project root, NOT the originals in `.pedantry/`
-- The submodule should remain unchanged so it can be updated cleanly
-- Modifying submodule files will cause merge conflicts during updates
+- Managed files are `lefthook.yml`, `.pedantry/AGENTS.md` and the marked blocks (`# >>> pedantry` to `# <<< pedantry`)
+- TypeScript, ESLint, Prettier and Stylelint come from the `@dryan/pedantry` npm package
 
 **When editing configs:**
 
-- ✅ Edit files at project root: `tsconfig.json`, `eslint.config.ts`, `pyproject.toml`, etc.
-- ❌ Never edit: `.pedantry/tsconfig.json`, `.pedantry/eslint.config.ts`, etc.
+- ✅ Edit the repo's own files: `tsconfig.json` (extends `@dryan/pedantry/tsconfig`), `eslint.config.ts` (imports `@dryan/pedantry/eslint`), etc.
+- ❌ Never edit the managed files above
 
 ---
 

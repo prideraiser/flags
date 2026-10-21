@@ -1,0 +1,6 @@
+# Repo-specific lefthook config, moved out of lefthook.yml by pedantry migrate.
+# lefthook merges this file into the managed lefthook.yml.
+pre-push:
+  commands:
+    fetch-flags:
+      run: npm run fetch-flags
