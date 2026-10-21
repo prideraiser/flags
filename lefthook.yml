@@ -1,8 +1,5 @@
-pre-push:
-  commands:
-    fetch-flags:
-      run: npm run fetch-flags
-
+# pedantry 2.0.2: managed by pedantry sync, do not edit.
+# Repo-specific hooks go in lefthook-local.yml, which lefthook merges in.
 pre-commit:
   parallel: false
   commands:
@@ -13,11 +10,10 @@ pre-commit:
         FILES=$(for f in {staged_files}; do
           [ -f "$f" ] && [ ! -L "$f" ] && echo "$f"
         done)
-        echo "Sending to prettier: $FILES"
         [ -z "$FILES" ] || npx prettier --write $FILES
       stage_fixed: true
 
-    # Lint JavaScript/TypeScript
+    # Lint JavaScript and TypeScript
     eslint:
       glob: "*.{js,ts,json}"
       run: |
@@ -25,4 +21,14 @@ pre-commit:
           [ -f "$f" ] && echo "$f"
         done)
         [ -z "$FILES" ] || npx eslint --fix $FILES
+      stage_fixed: true
+
+    # Lint CSS
+    stylelint:
+      glob: "*.css"
+      run: |
+        FILES=$(for f in {staged_files}; do
+          [ -f "$f" ] && echo "$f"
+        done)
+        [ -z "$FILES" ] || npx stylelint --fix $FILES
       stage_fixed: true

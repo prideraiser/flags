@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "*",
+    "@dryan/pedantry": "github:dryan-org/pedantry#v2.0.2",
     "@eslint/js": "*",
     "@eslint/json": "^0.14.0",
     "@rollup/plugin-commonjs": "*",
@@ -93,5 +94,6 @@
     "vitest": "^4.1.11",
     "wrangler": "^4.147.0"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "prettier": "@dryan/pedantry/prettier"
 }
