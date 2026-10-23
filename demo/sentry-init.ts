@@ -7,4 +7,11 @@ import * as Sentry from "@sentry/browser";
 Sentry.init({
   dsn: "https://7886e4ad35364ba9ad4682c3861acfea@errors.dryan.tech/22",
   tracesSampleRate: 0,
+  allowUrls: [/^https:\/\/flags\.prideraiser\.org\//],
+  denyUrls: [
+    /^about:blank/,
+    /^chrome-extension:\/\//,
+    /^moz-extension:\/\//,
+    /^safari(-web)?-extension:\/\//,
+  ],
 });
