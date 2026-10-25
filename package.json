@@ -71,8 +71,8 @@
     "@sentry/browser": "^10.75.0",
     "@types/eslint__js": "*",
     "@types/node": "*",
-    "@vitest/coverage-v8": "^4.1.11",
-    "@vitest/ui": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.12",
+    "@vitest/ui": "^4.1.12",
     "@web/test-runner": "*",
     "@web/test-runner-commands": "*",
     "@web/test-runner-playwright": "*",
@@ -91,9 +91,12 @@
     "typescript": "~6.0.0",
     "typescript-eslint": "*",
     "vite": "^8.3.4",
-    "vitest": "^4.1.11",
+    "vitest": "^4.1.12",
     "wrangler": "^4.147.0"
   },
   "customElements": "custom-elements.json",
-  "prettier": "@dryan/pedantry/prettier"
+  "prettier": "@dryan/pedantry/prettier",
+  "overrides": {
+    "undici": "^7.30.1"
+  }
 }
